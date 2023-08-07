@@ -1,14 +1,34 @@
-import 'package:chatapp/screens/auth/logic_screen.dart';
-import 'package:chatapp/screens/home_screen.dart';
+//import 'package:chatapp/screens/auth/login_screen.dart';
+//import 'package:chatapp/screens/home_screen.dart';
+import 'package:chatapp/screens/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+//import 'firebase_options.dart';
+//import 'dart:js_interop';
 
-//global object for accessing device screen size
+late Size mq; //global object for accessing device screen size
 
-late Size mq;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); //with Firebase
+// connecting with firebase
+  await _initializeFirebase();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
+    runApp(const MyApp());
+  });
+}
 
-void main() {
-  runApp(const MyApp());
+//void _initializeFirebase() {}
+Future<void> _initializeFirebase() async {
+  try {
+    await Firebase.initializeApp();
+    print("Firebase initialized successfully");
+  } catch (e) {
+    print("Firebase initialization error: $e");
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -30,8 +50,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue,
         ),
       ),
-      home: LogicScreen(),
-      //   home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SplashScreen(),
     );
   }
 }
