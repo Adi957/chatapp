@@ -13,6 +13,8 @@
 
          This Theme is only used starting with V2 of Flutter's Android embedding. -->
     <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
-        <item name="android:windowBackground">?android:colorBackground</item>
+    <!--This below line is used for solving the NOTCH phones problem , when we use splash screen with full screen  mode then a black line appears at the placce of notch, so this line solves the problem-->
+      <!-- <item name="android:windowLayoutInDisplayCutOutMode" tools:targetApi="o">shortEdges</item>  !-->
+       <item name="android:windowBackground">?android:colorBackground</item>
     </style>
 </resources>
