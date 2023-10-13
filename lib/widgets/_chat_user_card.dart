@@ -23,10 +23,13 @@ class _ChatUserCard extends State<ChatUserCard> {
         margin: EdgeInsets.symmetric(horizontal: mq.width * .04, vertical: 4),
         child: InkWell(
           onTap: () {
-
             //for navigating to chat screen
             Navigator.push(
-                context, MaterialPageRoute(builder: (_) => ChatScreen(user: widget.user,)));
+                context,
+                MaterialPageRoute(
+                    builder: (_) => ChatScreen(
+                          user: widget.user,
+                        )));
           },
           child: ListTile(
               //user profile picture

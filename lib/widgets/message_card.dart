@@ -14,7 +14,7 @@ class MessageCard extends StatefulWidget {
   @override
   State<MessageCard> createState() => _MessageCardState();
 }
-
+// error resolved
 class _MessageCardState extends State<MessageCard> {
   @override
   Widget build(BuildContext context) {
